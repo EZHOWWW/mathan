@@ -84,13 +84,13 @@ class Solution1:
         x = np.linspace(a0, b0, 400)
         y = f(x)
         plt.figure(figsize=(10, 6))
-        plt.plot(x, y, label='f(x)')
+        plt.plot(x, y, label="f(x)")
         plt.plot(
-            points, [f(p) for p in points], 'ro', label='Предполагаемые экстремумы'
+            points, [f(p) for p in points], "ro", label="Предполагаемые экстремумы"
         )
         plt.title(title)
-        plt.xlabel('x')
-        plt.ylabel('f(x)')
+        plt.xlabel("x")
+        plt.ylabel("f(x)")
         plt.legend()
         plt.grid(True)
         plt.show()
@@ -105,10 +105,10 @@ def min_example(f, a0, b0, epsilon):
         f, a0, b0, epsilon
     )
     print(
-        f'Минимум методом дихотомии: x = {x_min_dichotomy}, f(x) = {f(x_min_dichotomy)}'
+        f"Минимум методом дихотомии: x = {x_min_dichotomy}, f(x) = {f(x_min_dichotomy)}"
     )
     print(
-        f'Минимум методом золотого сечения: x = {x_min_golden}, f(x) = {f(x_min_golden)}'
+        f"Минимум методом золотого сечения: x = {x_min_golden}, f(x) = {f(x_min_golden)}"
     )
 
     # Визуализация для метода дихотомии
@@ -117,7 +117,7 @@ def min_example(f, a0, b0, epsilon):
         a0,
         b0,
         points_dichotomy,
-        'Метод дихотомии: положение предполагаемого экстремума',
+        "Метод дихотомии: положение предполагаемого экстремума",
     )
 
     # Визуализация для метода золотого сечения
@@ -126,7 +126,7 @@ def min_example(f, a0, b0, epsilon):
         a0,
         b0,
         points_golden,
-        'Метод золотого сечения: положение предполагаемого экстремума',
+        "Метод золотого сечения: положение предполагаемого экстремума",
     )
 
 
@@ -139,10 +139,10 @@ def max_example(f, a0, b0, epsilon):
         f, a0, b0, epsilon
     )
     print(
-        f'Максимум методом дихотомии: x = {x_min_dichotomy}, f(x) = {f(x_min_dichotomy)}'
+        f"Максимум методом дихотомии: x = {x_min_dichotomy}, f(x) = {f(x_min_dichotomy)}"
     )
     print(
-        f'Максимум методом золотого сечения: x = {x_min_golden}, f(x) = {f(x_min_golden)}'
+        f"Максимум методом золотого сечения: x = {x_min_golden}, f(x) = {f(x_min_golden)}"
     )
     # Визуализация для метода дихотомии
     s.lplot_iterations(
@@ -150,7 +150,7 @@ def max_example(f, a0, b0, epsilon):
         a0,
         b0,
         points_dichotomy,
-        'Метод дихотомии: положение предполагаемого инфинума',
+        "Метод дихотомии: положение предполагаемого инфинума",
     )
 
     # Визуализация для метода золотого сечения
@@ -159,12 +159,12 @@ def max_example(f, a0, b0, epsilon):
         a0,
         b0,
         points_golden,
-        'Метод золотого сечения: положение предполагаемого инфинума',
+        "Метод золотого сечения: положение предполагаемого инфинума",
     )
 
 
 def main():
-    def mgch(x: float, *args) -> float: # многочлен
+    def mgch(x: float, *args) -> float:  # многочлен
         res = 0
         for i, k in enumerate(args):
             res += x**i * k
@@ -187,5 +187,5 @@ def main():
     max_example(f1, a0, b0, epsilon)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
