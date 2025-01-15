@@ -1,4 +1,5 @@
 from types import FunctionType
+import matplotlib.pyplot as plt
 from math import cos
 import numpy as np
 
@@ -26,6 +27,19 @@ class Solution2:
             iteration += 1
         return (a + b) / 2.0, iteration
 
+    def plot_results(f, a0, b0, points, title="Корни"):
+        x = np.linspace(a0, b0, 512)
+        y = f(x)
+        plt.figure(figsize=(10, 6))
+        plt.plot(x, y, label="f(x)")
+        plt.plot(points, [f(p) for p in points], "ro", label="Корни")
+        plt.title(title)
+        plt.xlabel("x")
+        plt.ylabel("f(x)")
+        plt.legend()
+        plt.grid(True)
+        plt.show()
+
 
 def main():
     s = Solution2
@@ -34,14 +48,16 @@ def main():
         return x**3 - x - 2
 
     def f2(x):
-        return cos(x) - x
+        return np.cos(x) - x
 
     # Поиск корней
     root1, iterations1 = s.bisection_method(f1, 1, 2)
     print(f"Корень f1 на [1, 2]: {root1} за {iterations1} итераций.")
+    s.plot_results(f1, 0, 3, [root1])
 
     root2, iterations2 = s.bisection_method(f2, 0, 1)
     print(f"Корень f2 на [0, 1]: {root2} за {iterations2} итераций.")
+    s.plot_results(f2, -1, 2, [root2])
 
     # Известные истинные корни
     true_roots = {"f1": 1.52138, "f2": 0.739085}

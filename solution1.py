@@ -81,7 +81,7 @@ class Solution1:
         return x_star, intervals, x_points
 
     def plot_iterations(f, a0, b0, points, title):
-        x = np.linspace(a0, b0, 400)
+        x = np.linspace(a0, b0, 512)
         y = f(x)
         plt.figure(figsize=(10, 6))
         plt.plot(x, y, label="f(x)")
