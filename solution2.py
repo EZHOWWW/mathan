@@ -6,16 +6,6 @@ class Solution2:
     def bisection_method(
         f: FunctionType, a: float, b: float, epsilon=1e-5, max_iterations=1000
     ) -> tuple[float, int]:
-        """
-        Метод дихотомии для поиска корня функции f на интервале [a, b].
-
-        :param f: Исследуемая функция.
-        :param a: Левая граница интервала.
-        :param b: Правая граница интервала.
-        :param epsilon: Точность нахождения корня.
-        :param max_iterations: Максимальное количество итераций.
-        :return: Приближенное значение корня, количество итераций.
-        """
         if f(a) * f(b) >= 0:
             raise ValueError(
                 "Метод дихотомии не применим: f(a) и f(b) должны иметь противоположные знаки."
