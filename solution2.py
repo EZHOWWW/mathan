@@ -1,11 +1,16 @@
 from types import FunctionType
 import matplotlib.pyplot as plt
-from math import cos
 import numpy as np
 
 
 class Solution2:
-    def bisection_method(f, a, b, epsilon=1e-5, max_iterations=1000):
+    def bisection_method(
+        f: FunctionType,
+        a: float,
+        b: float,
+        epsilon: float = 1e-5,
+        max_iterations: int = 1000,
+    ) -> float:
         if f(a) * f(b) > 0:
             raise ValueError(f"Значения в a и b должны быть разных знаков({a}, {b})")
         elif f(a) * f(b) == 0:
@@ -27,7 +32,9 @@ class Solution2:
             iteration += 1
         return (a + b) / 2.0, iteration
 
-    def plot_results(f, a0, b0, points, title="Корни"):
+    def plot_results(
+        f: FunctionType, a0: float, b0: float, points: int, title: str = "Корни"
+    ):
         x = np.linspace(a0, b0, 512)
         y = f(x)
         plt.figure(figsize=(10, 6))
@@ -44,10 +51,10 @@ class Solution2:
 def main():
     s = Solution2
 
-    def f1(x):
+    def f1(x: float) -> float:
         return x**3 - x - 2
 
-    def f2(x):
+    def f2(x: float) -> float:
         return np.cos(x) - x
 
     # Поиск корней

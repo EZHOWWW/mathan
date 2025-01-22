@@ -41,7 +41,14 @@ class Solution1:
         x_star = (a + b) / 2
         return x_star, intervals, x_points
 
-    def golden_section_method(f, a0, b0, epsilon, max_iterations=1000, find_min=True):
+    def golden_section_method(
+        f: FunctionType,
+        a0: float,
+        b0: float,
+        epsilon: float,
+        max_iterations: int = 1000,
+        find_min: bool = True,
+    ) -> tuple[float, list[tuple[float, float]], list[float]]:
         phi = (1 + sqrt(5)) / 2
         resphi = 2 - phi
 
@@ -80,7 +87,7 @@ class Solution1:
         x_star = (a + b) / 2
         return x_star, intervals, x_points
 
-    def plot_iterations(f, a0, b0, points, title):
+    def plot_iterations(f: FunctionType, a0: float, b0: float, points: int, title: str):
         x = np.linspace(a0, b0, 512)
         y = f(x)
         plt.figure(figsize=(10, 6))
@@ -96,7 +103,7 @@ class Solution1:
         plt.show()
 
 
-def min_example(f, a0, b0, epsilon):
+def min_example(f: FunctionType, a0: float, b0: float, epsilon: float):
     s = Solution1
     x_min_dichotomy, intervals_dichotomy, points_dichotomy = s.dichotomy_method(
         f, a0, b0, epsilon
@@ -130,7 +137,7 @@ def min_example(f, a0, b0, epsilon):
     )
 
 
-def max_example(f, a0, b0, epsilon):
+def max_example(f: FunctionType, a0: float, b0: float, epsilon: float):
     s = Solution1
     x_min_dichotomy, intervals_dichotomy, points_dichotomy = s.dichotomy_method(
         f, a0, b0, epsilon
