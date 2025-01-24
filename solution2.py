@@ -2,6 +2,9 @@ from types import FunctionType
 import matplotlib.pyplot as plt
 import numpy as np
 
+import unittest
+import random
+
 
 class Solution2:
     def bisection_method(
@@ -11,6 +14,17 @@ class Solution2:
         epsilon: float = 1e-5,
         max_iterations: int = 1000,
     ) -> float:
+        """Метод дихотомии для нахождения корня
+
+        Input:
+            f - ф-я
+            [a, b] - Интервал на котором ищем корень, f - непрерывна на [a, b]
+            epsilon - Точность
+            max_iterations - максимальное кол-во итераций
+
+        Retrun:
+            Приблеженное значение корня, кол-во итераций
+        """
         if f(a) * f(b) > 0:
             raise ValueError(f"Значения в a и b должны быть разных знаков({a}, {b})")
         elif f(a) * f(b) == 0:
@@ -48,7 +62,20 @@ class Solution2:
         plt.show()
 
 
+class TestSolution2(unittest.TestCase):
+    def setUp(self):
+        self.s = Solution2
+
+    def test_bisection_method(self):
+        for i in range(100):
+            k = random.randint(-1000, 1000)
+        self.assertAlmostEqual(
+            self.s.bisection_method(lambda x: x - k, -10000, 10000)[0], k, delta=1e4
+        )
+
+
 def main():
+    unittest.main()
     s = Solution2
 
     def f1(x: float) -> float:
